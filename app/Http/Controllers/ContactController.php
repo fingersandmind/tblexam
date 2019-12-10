@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Http\Requests\ContactRequest;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class ContactController extends Controller
 {
@@ -42,6 +43,9 @@ class ContactController extends Controller
 
         $contact = new Contact();
         $contact->saveContact($request);
+
+        Mail::to($request->email)->send(new SendMailable());
+
         if($request->get('action') == 'save')
         {
             return redirect()->route('contacts.index')->withSuccess('Successfully Created');

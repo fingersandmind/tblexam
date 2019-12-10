@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Mail\SendMailable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Mail;
 
 class Contact extends Model
 {
@@ -21,6 +19,5 @@ class Contact extends Model
             ['id' => $this->id],
             $request->except('action')
         );
-        Mail::to($request->email)->send(new SendMailable());
     }
 }
