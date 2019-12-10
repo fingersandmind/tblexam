@@ -23,6 +23,7 @@
                                 <th class="wd-15p">Last Name</th>
                                 <th class="wd-20p">Email</th>
                                 <th class="wd-20p">Phone</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,7 +54,7 @@
                             @endforeach
                         </tbody>
                     </table>
-            </div>
+                </div>
             </div>
             <!-- table-wrapper -->
         </div>
@@ -69,10 +70,10 @@
 @endpush
 
 @push('additionalJS')
-<script>
-
 <script src="{{ asset('assets/plugins/datatable/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
+
+<script>
     $(function(e) {
         $('#example').DataTable();
     } );
